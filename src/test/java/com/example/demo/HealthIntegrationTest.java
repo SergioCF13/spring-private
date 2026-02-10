@@ -14,6 +14,6 @@ public class HealthIntegrationTest {
     @Test
     public void healthEndpointReturnsExpectedMessage() {
         String response = this.restTemplate.getForObject("/health", String.class);
-        assertEquals("Health check passed!", response);
+        assertEquals("Health Check passed! deployed successfully.", response);
     }
 }

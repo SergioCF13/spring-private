@@ -18,18 +18,18 @@ public class DemoApplication {
 class HelloController {
     @Autowired
     private Environment environment;
-    
+
     @GetMapping("/")
     public String hello() {
-        return "Hello CI/CD World - Semana 4 de Taller Final!!!";
+        String port = environment.getProperty("local.server.port");
+        return "¡Bienvenido! Aplicación Spring Boot Presentación Final version canary. Versión actual corriendo en el puerto: " + port + ".";
     }
     @GetMapping("/health")
-    public String health() {
-        return "Health check passed!";
+    public String health(){
+        return "Health Check passed! deployed successfully.";
     }
-
     @GetMapping("/instance")
-    public String instance() {
+    public String instance(){
         String port = environment.getProperty("local.server.port");
         return "Instancia corriendo en port: " + port;
     }
